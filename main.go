@@ -20,6 +20,10 @@ func main() {
 	// Your normal weight range
 	minWeight, maxWeight := normalWeightRange(height)
 	fmt.Printf("Your normal weight range(min/max): %.1fkg to %.1fkg\n", minWeight, maxWeight)
+
+	// Your BMI
+	bmi := calculateBMI(weight, height)
+	fmt.Printf("Your calculated BMI: %.1f\n", bmi)
 }
 
 func normalWeightRange(height float64) (normalWeightRangeMin, normalWeightRangeMax float64) {
@@ -31,4 +35,9 @@ func normalWeightRange(height float64) (normalWeightRangeMin, normalWeightRangeM
 	normalWeightRangeMax = normalBMIMax * math.Pow(height, 2)
 
 	return normalWeightRangeMin, normalWeightRangeMax
+}
+
+func calculateBMI(weight, height float64) (BMI float64) {
+	BMI = weight / (math.Pow(height, 2))
+	return BMI
 }
